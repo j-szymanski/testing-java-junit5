@@ -1,5 +1,6 @@
 package prw.jws.sfgpetclinic.controllers;
 
+import prw.jws.sfgpetclinic.ControllerTests;
 import prw.jws.sfgpetclinic.fauxspring.Model;
 import prw.jws.sfgpetclinic.fauxspring.ModelMapImpl;
 import prw.jws.sfgpetclinic.model.Speciality;
@@ -17,8 +18,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Tag("controller")
-class VetControllerTest {
+
+class VetControllerTest implements ControllerTests {
 
     SpecialtyService specialityService;
     VetService vetService;
