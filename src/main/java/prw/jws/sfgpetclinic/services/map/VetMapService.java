@@ -7,6 +7,8 @@ import prw.jws.sfgpetclinic.services.VetService;
 
 import java.util.Set;
 
+import static java.util.Objects.nonNull;
+
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialtyService specialtyService;
@@ -28,7 +30,7 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
     @Override
     public Vet save(Vet object) {
 
-        if (object.getSpecialities().size() > 0){
+        if (nonNull(object.getSpecialities()) && object.getSpecialities().size() > 0){
             object.getSpecialities().forEach(speciality -> {
                 if(speciality.getId() == null){
                     Speciality savedSpecialty = specialtyService.save(speciality);
