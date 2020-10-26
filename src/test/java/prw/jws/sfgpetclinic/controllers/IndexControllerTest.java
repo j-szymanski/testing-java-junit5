@@ -1,5 +1,6 @@
 package prw.jws.sfgpetclinic.controllers;
 
+import prw.jws.sfgpetclinic.ControllerTests;
 import prw.jws.sfgpetclinic.controllers.exceptions.ValueNotFoundException;
 
 import java.time.Duration;
@@ -20,8 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-@Tag("controllers")
-class IndexControllerTest {
+//@Tag("controllers")
+class IndexControllerTest implements ControllerTests {
 
     IndexController controller;
 
