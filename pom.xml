@@ -43,6 +43,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+        <maven-site-plugin.version>3.9.1</maven-site-plugin.version>
         <maven-lowest-version.version>3.6.0</maven-lowest-version.version>
         <apache-commons-lang3.version>3.11</apache-commons-lang3.version>
         <javax-validation-api.version>2.0.1.Final</javax-validation-api.version>
@@ -108,9 +109,17 @@
                     <argLine>
                         --illegal-access=permit
                     </argLine>
+                    <!-- executing tests with particular tags
+                    &amp; which decodes to & and | can be used to select tests with given tags to be executed -->
+                    <groups>models | controllers</groups>
+                    <!-- excluding particular groups (tags) if above is commented out and below is enabled
+                     maven would run all tests excluding those with models tag. -->
+                    <!-- <excludes>models</excludes> -->
                 </configuration>
             </plugin>
             <plugin>
+                <!-- integration test runner plugin -->
+                <!-- test class name must end with IT -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
@@ -119,6 +128,14 @@
                         --illegal-access=permit
                     </argLine>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -143,7 +160,22 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- site plugin for newest maven surefire and failsafe plugins-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${maven-site-plugin.version}</version>
+            </plugin>
         </plugins>
     </build>
-
+    <!-- reporting plugin which shows report generated on executed tests -->
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>
