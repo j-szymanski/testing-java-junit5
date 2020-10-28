@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/j-szymanski/testing-java-junit5.svg?style=svg&circle-token=859c15132810b21caa1e160cc9619f86d1731b8b)](https://circleci.com/gh/j-szymanski/testing-java-junit5)
+[![CircleCI](https://circleci.com/gh/j-szymanski/testing-java-junit5.svg?style=svg&circle-token=dc83be2c0538cf64f1aef05521b3c3e2f079f29a)](https://circleci.com/gh/j-szymanski/testing-java-junit5)
 
 # Introduction to JUnit 5 with Maven
 
