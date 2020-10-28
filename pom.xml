@@ -111,7 +111,7 @@
                     </argLine>
                     <!-- executing tests with particular tags
                     &amp; which decodes to & and | can be used to select tests with given tags to be executed -->
-                    <groups>models | controllers</groups>
+<!--                    <groups>models | controllers</groups>-->
                     <!-- excluding particular groups (tags) if above is commented out and below is enabled
                      maven would run all tests excluding those with models tag. -->
                     <!-- <excludes>models</excludes> -->
